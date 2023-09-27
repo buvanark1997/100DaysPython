@@ -1,47 +1,57 @@
 # tip calculation program
 import random
 import camelcase
+from caeserArt import logo
+import os
+from calenderArt import calender
+from blackjack import logo
 from replit import clear
-def calculateTip():
+from guessthenumber import logo
+from higherlowergame_data import data
+from higherlowerart import logo
+from higherlowerart import vs
+
+
+def calculate_tip():
     print("Welcome to the tip calculator")
-    totalBill = float(input("What was the total bill?"))
-    tipPercentage = int(input("What percentage tip would you like to give ?"))
+    total_bill = float(input("What was the total bill?"))
+    tip_percentage = int(input("What percentage tip would you like to give ?"))
     people = int(input("How many people to split the bill?"))
 
-    tipValue = round(totalBill, 2) * (tipPercentage / 100)
-    share = (tipValue + totalBill) / people
-    formatted_Share = "{:.2f}".format(share)  # it will print the last value even if its "0"
+    tip_value = round(total_bill, 2) * (tip_percentage / 100)
+    share = (tip_value + total_bill) / people
+    formatted_share = "{:.2f}".format(share)  # it will print the last value even if its "0"
     print(f"Each person should pay: {round(share, 2)}")  # if last digit is "0" round will not print 0
-    print(f"Each person should pay: {formatted_Share}")
+    print(f"Each person should pay: {formatted_share}")
 
 
-def order_Pizza():
+def order_pizza():
     print("Welcome to python pizza deliveries !")
     size = str(input("Enter pizza size. S, M or L?"))
-    addOn = str(input("Do you need papproni on top? Y or N"))
-    exCheese = str(input("Do you need extra cheese on top? Y or N"))
+    add_on = str(input("Do you need pepperoni on top? Y or N"))
+    ex_cheese = str(input("Do you need extra cheese on top? Y or N"))
     price = 0
     if size.lower() == 's':
         price += 15
-        if addOn.lower() == 'y':
+        if add_on.lower() == 'y':
             price += 2
     elif size.lower() == 'm':
         price += 20
-        if addOn.lower() == 'y':
+        if add_on.lower() == 'y':
             price += 3
 
     elif size.lower() == 'l':
         price += 25
-        if addOn.lower() == 'y':
+        if add_on.lower() == 'y':
             price += 3
 
-    if exCheese.lower() == 'y':
+    if ex_cheese.lower() == 'y':
         price += 1
 
     print(f"Your final bill is: ${price}")
 
 
-def loveCalculator():
+def love_calculator():
     first_digit_letters = ["t", "r", "u", "e"]
     second_digit_letters = ["l", "o", "v", "e"]
     name1 = str(input("What is your name?\n"))
@@ -53,16 +63,15 @@ def loveCalculator():
         first_digit += name.count(fl)
     for fl in second_digit_letters:
         second_degit += name.count(fl)
-    finalValue = str(first_digit) + str(second_degit)
-    Message = ""
-    if int(finalValue) < 10 or int(finalValue) > 90:
-        Message = f"Your score is {finalValue}, you go together like coke and mentos"
-    elif int(finalValue) >= 40 and int(finalValue) <= 50:
-        Message = f"Your score is {finalValue}, you are alright together"
+    final_value = str(first_digit) + str(second_degit)
+    if int(final_value) < 10 or int(final_value) > 90:
+        message = f"Your score is {final_value}, you go together like coke and mentos"
+    elif 40 <= int(final_value) <= 50:
+        message = f"Your score is {final_value}, you are alright together"
     else:
-        Message = f"Your score is {finalValue}"
+        message = f"Your score is {final_value}"
 
-    print(Message)
+    print(message)
 
 
 # get random number from the computer which is not decided from us
@@ -73,31 +82,31 @@ def random_exercise():
 
 
 # program to pick random value from the list
-def payBills():
-    inputStr = input("Enter list of names \n")
-    listNames = inputStr.split(",")
-    length = len(listNames)
-    randomValue = random.randint(0, length - 1)
-    print(f"{listNames[randomValue]} is going to pay for the meal")
+def pa_bills():
+    input_str = input("Enter list of names \n")
+    list_names = input_str.split(",")
+    length = len(list_names)
+    random_value = random.randint(0, length - 1)
+    print(f"{list_names[random_value]} is going to pay for the meal")
 
 
-def combiningList():
+def combining_list():
     list1 = [1, 2, 3, 4, 5]
     list2 = [5, 4, 3, 2, 1]
     list_combined = [list1, list2]
     print(list_combined[0][0])
 
 
-def TreasureMap():
+def treasure_map():
     row1 = ["😏", "😏", "😏"]
     row2 = ["😏", "😏", "😏"]
     row3 = ["😏", "😏", "😏"]
     row = [row1, row2, row3]
-    indexValue = input(
+    index_value = input(
         "Enter the index to mark")  # first digit represents column position second represents row position
-    rowValue = int(indexValue[1]) - 1
-    colValue = int(indexValue[0]) - 1
-    row[rowValue][colValue] = "X"
+    row_value = int(index_value[1]) - 1
+    col_value = int(index_value[0]) - 1
+    row[row_value][col_value] = "X"
     print(f"{row1}\n{row2}\n{row3}")
 
 
@@ -137,27 +146,27 @@ def rock_paper_scissors():
         print(paper)
     else:
         print(scissors)
-    choiceArray = ["rock", "paper", "scissors"]
-    computerChoice = choiceArray[random.randrange(0, len(choiceArray) - 1)]
+    choice_array = ["rock", "paper", "scissors"]
+    compute_choice = choice_array[random.randrange(0, len(choice_array) - 1)]
     print("Computer choice")
-    if computerChoice == "rock":
+    if compute_choice == "rock":
         print(rock)
-    elif computerChoice == "paper":
+    elif compute_choice == "paper":
         print(paper)
     else:
         print(scissors)
 
-    if your_choice == 0 and computerChoice.lower() == "scissors":
+    if your_choice == 0 and compute_choice.lower() == "scissors":
         print("You win")
-    elif your_choice == 0 and computerChoice.lower() == "paper":
+    elif your_choice == 0 and compute_choice.lower() == "paper":
         print("You lose")
-    elif your_choice == 2 and computerChoice.lower() == "rock":
+    elif your_choice == 2 and compute_choice.lower() == "rock":
         print("You lose")
-    elif your_choice == 2 and computerChoice.lower() == "paper":
+    elif your_choice == 2 and compute_choice.lower() == "paper":
         print("You win")
-    elif your_choice == 1 and computerChoice.lower() == "rock":
+    elif your_choice == 1 and compute_choice.lower() == "rock":
         print("You win")
-    elif your_choice == 1 and computerChoice.lower() == "scissors":
+    elif your_choice == 1 and compute_choice.lower() == "scissors":
         print("You lose")
     else:
         print("Draw")
@@ -165,15 +174,15 @@ def rock_paper_scissors():
 
 # find the highest score from the list without using in-build functions
 
-def highest_Score():
-    scoreList_Str = input("Enter list of scores: ")
-    scoreList = scoreList_Str.split(',')
-    maxScore = 0
-    for i in scoreList:
-        if int(i) > maxScore:
-            maxScore = int(i)
+def highest_score():
+    score_list_str = input("Enter list of scores: ")
+    score_list = score_list_str.split(',')
+    max_score = 0
+    for i in score_list:
+        if int(i) > max_score:
+            max_score = int(i)
 
-    print(maxScore)
+    print(max_score)
 
 
 # fizzbuzz game - print number from 1 to 100 for no divisible by 3 print fizz
@@ -192,7 +201,7 @@ def fizzbuzz():
         print(message)
 
 
-def password_Generator():
+def password_generator():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
                'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -200,37 +209,36 @@ def password_Generator():
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
     print("Welcome to the PyPassword Generator!")
     generated_password = ""
-    randomized_password = ""
     nr_letters = int(input("How many letters would you like in your password?\n"))
     nr_symbols = int(input(f"How many symbols would you like?\n"))
     nr_numbers = int(input(f"How many numbers would you like?\n"))
     for i in range(0, nr_letters):
-        randomValue = random.randint(0, len(letters) - 1)
-        generated_password += letters[randomValue]
+        random_value = random.randint(0, len(letters) - 1)
+        generated_password += letters[random_value]
     for i in range(0, nr_symbols):
-        randomValue = random.randint(0, len(symbols) - 1)
-        generated_password += symbols[randomValue]
+        random_value = random.randint(0, len(symbols) - 1)
+        generated_password += symbols[random_value]
     for i in range(0, nr_numbers):
-        randomValue = random.randint(0, len(numbers) - 1)
-        generated_password += numbers[randomValue]
+        random_value = random.randint(0, len(numbers) - 1)
+        generated_password += numbers[random_value]
     generated_password = list(generated_password)
     generated_password = random.sample(generated_password, len(generated_password))
     generated_password = ''.join(generated_password)  # to convert list to string
     print(f"Here is your password: {generated_password}")
 
 
-def Hangman_Exer1():
+def hangman_exercise_1():
     words = ['Moon', 'ISRO', 'VikramLander']
-    selectedWord = random.choice(words)
+    selected_word = random.choice(words)
     ic = input("Enter letter")
-    for c in selectedWord:
+    for c in selected_word:
         if ic.lower() == c.lower():
             print("Right")
         else:
             print("Wrong")
 
 
-def Hangman_Exer2():
+def hangman_exercise_2():
     stages = ['''
       +---+
       |   |
@@ -288,32 +296,29 @@ def Hangman_Exer2():
     =========
     ''']
     words = ['Moon', 'ISRO', 'VikramLander']
-    selectedWord = random.choice(words)
-    print(selectedWord)
-    blankWord = ""
+    selected_word = random.choice(words)
+    print(selected_word)
+    blank_word = ""
     lives = 6
-    for l in selectedWord:
-        blankWord += "_"
+    for l in selected_word:
+        blank_word += "_"
     while lives > 0:
         ic = input("Enter letter")
-        for i in range(0, len(selectedWord)):
-            if ic.lower() == selectedWord[i].lower():
-                blankWord = list(blankWord)
-                blankWord[i] = ic
-        print(''.join(blankWord))
-        if ic not in selectedWord:
+        for i in range(0, len(selected_word)):
+            if ic.lower() == selected_word[i].lower():
+                blank_word = list(blank_word)
+                blank_word[i] = ic
+        print(''.join(blank_word))
+        if ic not in selected_word:
             lives = lives - 1
-            end_of_game = True
 
             if lives == 0:
                 print("You Lose")
 
-    if '_' not in blankWord:
+    if '_' not in blank_word:
         print("You Won")
     print(stages[lives])
 
-
-from caeserArt import logo
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
@@ -321,13 +326,12 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
             'v', 'w', 'x', 'y', 'z']
 
 
-def CaeserCipher():
+def caesercipher():
     print(logo)
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
-    secretMessage = ""
-    appendmsg = ""
+    secret_message = ""
     while shift > 52:
         shift = shift % len(alphabet)
     for t in text:
@@ -337,40 +341,40 @@ def CaeserCipher():
                 index += shift
             else:
                 index -= shift
-            appendmsg = alphabet[index]
+            append_msg = alphabet[index]
         else:
-            appendmsg = t
-        secretMessage += appendmsg
+            append_msg = t
+        secret_message += append_msg
 
-    print(f" your {direction}d message is {secretMessage}")
+    print(f" your {direction}d message is {secret_message}")
 
 
 student_scores = {
     "Harry": 81,
     "Ron": 78,
-    "Hermoine": 99,
+    "Heroine": 99,
     "Draco": 74,
     "Neville": 62
 }
 
 
 # Dictionary
-def findResult():
-    Result_Student = {}
+def find_result():
+    result_student = {}
     for stu in student_scores:
         if student_scores[stu] >= 91:
-            Result_Student[stu] = "Outstanding"
+            result_student[stu] = "Outstanding"
         elif 81 <= student_scores[stu] <= 90:
-            Result_Student[stu] = "Exceeds Expectations"
+            result_student[stu] = "Exceeds Expectations"
         elif 71 <= student_scores[stu] <= 80:
-            Result_Student[stu] = "Acceptable"
+            result_student[stu] = "Acceptable"
         else:
-            Result_Student[stu] = "Fail"
+            result_student[stu] = "Fail"
 
-    print(Result_Student)
+    print(result_student)
 
 
-# nesting dictinary in a dictionary
+# nesting dictionary in a dictionary
 travel_log_dict = {
     "France": {"Cities_visited": ["Paris", "Lille", "Dijon"], "Total_visits": 12},
     "Germany": ["Berlin", "Hamburg", "Stuttgart"]
@@ -390,109 +394,111 @@ travel_log_list = [
 ]
 
 
-def add_new_country(country, no_of_visits, citiesList):
+def add_new_country(country, no_of_visits, cities_list):
     new_list = {
         "Country": country,
-        "Cities_visited": citiesList,
+        "Cities_visited": cities_list,
         "Total_visits": no_of_visits
     }
     travel_log_list.append(new_list)
     print(travel_log_list)
-    order = {
-        "starter": {1: "Salad", 2: "Soup"},
-        "main": {1: ["Burger", "Fries"], 2: ["Steak"]},
-        "dessert": {1: ["Ice Cream"], 2: []},
-    }
     # print(order["main"][2][0])
 
 
 # add_new_country("Russia",2,["Moscow","Saint Peter"])
-import os
+
+
 # secret auction program
-import os
-
-
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-from replit import clear
-
-
-def Secret_Auction():
-    Auction_Dictionary = {}
-    stopInput = False
-    while not stopInput:
+def secret_auction():
+    auction_dictionary = {}
+    stop_input = False
+    while not stop_input:
         key_input = input("What is your name?: ")
         value_input = int(input("What is your bid?: $"))
         any_bid = input("Are there any other bidders? Type 'yes' or 'no'")
         if any_bid == 'no':
-            stopInput = True
+            stop_input = True
         else:
             clear()
-        Auction_Dictionary[key_input] = value_input
-    max_bid = list(Auction_Dictionary.values())[0]
+        auction_dictionary[key_input] = value_input
+    max_bid = list(auction_dictionary.values())[0]
     won_bid = {}
-    for auc in Auction_Dictionary:
-        if Auction_Dictionary[auc] > max_bid:
-            won_bid[auc] = Auction_Dictionary[auc]
+    for auc in auction_dictionary:
+        if auction_dictionary[auc] > max_bid:
+            won_bid[auc] = auction_dictionary[auc]
     print(f"The winner is {list(won_bid.keys())[0]} with a bid of ${list(won_bid.values())[0]} ")
 
 
-#functions with outputs exercise
-def TitleCaseFunc(firstname,lastname):
+# functions with outputs exercise
+def title_case_func(firstname, lastname):
     """doc string - This is a way of adding command to a function, hover on this function calling u will see more"""
-    #one way
-    x = camelcase.CamelCase() #returns upper case as upper case
-    #return x.hump(firstname+' '+lastname)
-    #another way
-    return f"{firstname.title()} {lastname.title()}" #return as camelcase even if input is all upper case
-#multiple return values
+    # one way
+    x = camelcase.CamelCase()  # returns upper case as upper case
+    # return x.hump(firstname+' '+lastname)
+    # another way
+    return f"{firstname.title()} {lastname.title()}"  # return as camelcase even if input is all upper case
+
+
+# multiple return values
 # first_Name = input("Enter your first name")
 # last_Name = input("Enter your last name")
 # print(TitleCaseFunc(first_Name,last_Name))
 
-#calculator program Concepts(while loops,Flags and Recursion)
-def Addition(a,b):
-    return a+b
-def Subtraction(a,b):
-    return a-b
-def Multiplication(a,b):
-    return a*b
-def Division(a,b):
-    return a/b
+# calculator program Concepts(while loops,Flags and Recursion)
+def addition(a, b):
+    return a + b
+
+
+def subtraction(a, b):
+    return a - b
+
+
+def multiplication(a, b):
+    return a * b
+
+
+def division(a, b):
+    return a / b
+
+
 operations = {
-        "+": Addition,
-        "-": Subtraction,
-        "*": Multiplication,
-        "/": Division
-    }
-from calenderArt import calender
+    "+": addition,
+    "-": subtraction,
+    "*": multiplication,
+    "/": division
+}
+
+
 def calculator():
     print(calender)
     num1 = float(input("what's the first number?: "))
     for symbols in operations:
         print(symbols)
-    should_Continue = True #FLAGS
-    while should_Continue: #WHILE
+    should_continue = True  # FLAGS
+    while should_continue:  # WHILE
         operation = input("Pick an operation: ")
         num2 = float(input("What's the next number?: "))
         function = operations[operation]
         result = function(num1, num2)
         print(f"{num1} {operation} {num2} = {result}")
-        YorN = input(f"Type 'y' to continue calculating with {result},or type 'n' to start new calculation: ")
-        if YorN == 'n':
-            should_Continue = False
-            calculator() # RECURSION
+        y_or_n = input(f"Type 'y' to continue calculating with {result},or type 'n' to start new calculation: ")
+        if y_or_n == 'n':
+            should_continue = False
+            calculator()  # RECURSION
         else:
             num1 = result
-
-from blackjack import logo
-from replit import clear
+            
+            
 def deal_card():
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
     return random.choice(cards)
-def calculate_Score(cards):
+
+
+def calculate_score(cards):
     """Take a list of cards and return the score calculated from the list """
     if sum(cards) == 21 and len(cards) == 2:
         return 0
@@ -501,97 +507,136 @@ def calculate_Score(cards):
         cards.append(1)
 
     return sum(cards)
-def compare(userScore,computerScore):
-    if userScore == computerScore:
+
+
+def compare(user_score, computer_score):
+    if user_score == computer_score:
         return "Draw "
-    elif computerScore == 0:
+    elif computer_score == 0:
         return "Lose, Your opponent win with a Blackjack 😭"
-    elif userScore == 0:
+    elif user_score == 0:
         return "win with a blackjack 😎"
-    elif userScore > 21:
+    elif user_score > 21:
         return "You went over. you lose 😭"
-    elif computerScore > 21:
+    elif computer_score > 21:
         return "Opponent went over. you win 😎"
-    elif computerScore > userScore:
+    elif computer_score > user_score:
         return "You lose 😭"
     else:
         return "You win 😎"
-def Blackjack():
+
+
+def blackjack():
     print(logo)
-    userStops = True
     user_cards = []
     computer_cards = []
-    isGameOver = False
-    computerScore=0
-    userScore=0
-    for _ in range(2): #initially give 2 cards each
+    is_game_over = False
+    computer_score = 0
+    user_score = 0
+    for _ in range(2):  # initially give 2 cards each
         user_cards.append(deal_card())
         computer_cards.append(deal_card())
 
-    while not isGameOver:
-        userScore = calculate_Score(user_cards)
-        computerScore = calculate_Score(computer_cards)
+    while not is_game_over:
+        user_score = calculate_score(user_cards)
+        computer_score = calculate_score(computer_cards)
 
-        print(f"Your Cards:{user_cards}, current score:{userScore}")
+        print(f"Your Cards:{user_cards}, current score:{user_score}")
         print(f"Computer's first card:{computer_cards[0]}")
 
-        if userScore ==0 or computerScore == 0 or userScore > 21: # 0 indicates blackjack
-            isGameOver = True
+        if user_score == 0 or computer_score == 0 or user_score > 21:  # 0 indicates blackjack
+            is_game_over = True
         else:
-            userChoice = input("Type 'y' to get another card, type 'n' to pass: ")
+            user_choice = input("Type 'y' to get another card, type 'n' to pass: ")
 
-            if userChoice == 'y':
+            if user_choice == 'y':
                 user_cards.append(deal_card())
             else:
-                isGameOver = True
+                is_game_over = True
 
-    while computerScore != 0 and computerScore < 17:
+    while computer_score != 0 and computer_score < 17:
         computer_cards.append(deal_card())
-        computerScore = calculate_Score(computer_cards)
-    print(f"your final hand:{user_cards},fincal score:{userScore}")
-    print(f"Computer's final hand: {computer_cards}, final score {computerScore}")
-    print(compare(userScore,computerScore))
-while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == 'y':
-    clear()
-    Blackjack()
-#scope concept
-localvariable = 5
-def increseValue():
-    localvariable = 4
-    print(f"my value is {localvariable}")
+        computer_score = calculate_score(computer_cards)
+    print(f"your final hand:{user_cards},fincal score:{user_score}")
+    print(f"Computer's final hand: {computer_cards}, final score {computer_score}")
+    print(compare(user_score, computer_score))
 
-increseValue()
-print(f"my value on the outside is {localvariable}")
+
+# while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == 'y':
+# clear()
+# Blackjack()
+# scope concept
+local_variable = 5
+
+
+def increase_value():
+    local_variable = 4
+    print(f"my value is {local_variable}")
+
+
+increase_value()
+print(f"my value on the outside is {local_variable}")
 # Secret_Auction()
-from guessthenumber import logo
-#number guessing game - use global variable concept
+
+
+# number guessing game - use global variable concept
 EASY_LEVEL_ATTEMPTS = 10
 HARD_LEVEL_ATTEMPTS = 5
+
 
 def find_attempt(level):
     if level.lower() == 'easy':
         return EASY_LEVEL_ATTEMPTS
     else:
         return HARD_LEVEL_ATTEMPTS
+
+
 def number_guessing_game():
     print(logo)
     print("Welcome to the Number Guessing Game !")
     print("I'm thinking of a number between 1 and 100")
-    difficulty_Level = str(input("choose a difficulty. Type 'easy' or 'hard': "))
-    computer_choice = random.randint(1,100)
-    attemps_Left = find_attempt(difficulty_Level)
-    while attemps_Left>0:
-        print(f"You have {attemps_Left} attempts remaining to guess the number.")
+    difficulty_level = str(input("choose a difficulty. Type 'easy' or 'hard': "))
+    computer_choice = random.randint(1, 100)
+    attempts_left = find_attempt(difficulty_level)
+    while attempts_left > 0:
+        print(f"You have {attempts_left} attempts remaining to guess the number.")
         user_input = int(input("Make a guess: "))
         if computer_choice > user_input:
             print("Too Low")
-            attemps_Left -= 1
+            attempts_left -= 1
         elif computer_choice < user_input:
             print("Too high")
-            attemps_Left -= 1
+            attempts_left -= 1
         else:
             print(f"You got it! the answer was {computer_choice}")
-            attemps_Left = 0
+            attempts_left = 0
 
 
-number_guessing_game()
+# higher lower game - self coding ex
+def higher_lower_game():
+    print(logo)
+    user_failed = False
+    user_score = 0
+    option_b = random.choice(data)
+    while not user_failed:
+        option_a = option_b
+        option_b = random.choice(data)
+        if option_a == option_b:
+            option_b = random.choice(data)
+        print(f"Compare A:{option_a['name']}, {option_a['description']}, from {option_a['country']}")
+        print(vs)
+        print(f"Against B:{option_b['name']}, {option_b['description']}, from {option_b['country']}")
+        user_choice = input("Who has more followers? Type 'A' or 'B'")
+        if option_a['follower_count'] > option_b['follower_count'] and user_choice.lower() == 'a':
+            user_score += 1
+            print(f"You're right! Current score: {user_score}")
+        elif option_a['follower_count'] < option_b['follower_count'] and user_choice.lower() == 'b':
+            user_score += 1
+            print(f"You're right! Current score: {user_score}")
+        else:
+            print(f"Sorry, that's wrong. Final score: {user_score}")
+            user_failed = True
+
+
+
+
