@@ -8,4 +8,4 @@ To attach one list to another list               - list1.extend(list2)
 Global variable                                  - recommend not to change the value to of the global variable.
                                                    naming convention recomm is GLOBAL_VARIABLE (to identify its global)
 Text to ASCII Art creater                        - http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
-
+PascalCase, camelCase,snake_case                 - Class names should be of PascalCase, all methods and variable should be of snake case

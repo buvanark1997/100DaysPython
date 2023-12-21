@@ -638,5 +638,45 @@ def higher_lower_game():
             user_failed = True
 
 
+# numbers = [1, 2, 3, 4, 5]
+# squared_numbers = [x ** 2 for x in numbers if x % 2 == 0]
+# print(squared_numbers)
+
+import copy
+li1 = [1, 2, [3, 5], 4]
+li2 = copy.copy(li1)
+print("li1 ID: ", id(li1), "Value: ", li1)
+print("li2 ID: ", id(li2), "Value: ", li2)
+li3 = copy.deepcopy(li1)
+print("li3 ID: ", id(li3), "Value: ", li3)
+li2[2][0] = 432
+print("li1 ID: ", id(li1), "Value: ", li1)
+print("li2 ID: ", id(li2), "Value: ", li2)
+print("li3 ID: ", id(li3), "Value: ", li3)
+
+
+class Ocean:
+
+    def __init__(self, sea_creature_name, sea_creature_age):
+        self.name = sea_creature_name
+        self.age = sea_creature_age
+
+    def __str__(self):
+        return f'The creature type is {self.name} and the age is {self.age}'
+
+    def __repr__(self):
+        return f'Ocean(\'{self.name}\', {self.age})'
+
+
+c = Ocean('Jellyfish', 5)
+
+print(str(c))
+print(repr(c))
+import datetime
+
+mydate = datetime.datetime.now()
+print("__str__() string: ", mydate)
+print("__str__() string: ", mydate.__str__())
+print("__repr__() string: ", mydate.__repr__())
 
 
